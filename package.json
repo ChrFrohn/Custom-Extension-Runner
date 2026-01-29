@@ -1,0 +1,36 @@
+{
+  "name": "entra-governance-custom-extension-runner",
+  "version": "1.0.0",
+  "description": "Web application for running Entra ID Governance Custom Extensions on-demand with Easy Auth delegated permissions",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrFrohn/Entra-Governance-Custom-Extension-Runner-Dev.git"
+  },
+  "author": "Christian Frohn <cfp@christianfrohn.dk>",
+  "license": "MIT",
+  "keywords": [
+    "entra-id",
+    "identity-governance",
+    "lifecycle-workflows",
+    "custom-extensions",
+    "azure",
+    "easy-auth",
+    "delegated-permissions"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.13.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "axios": "^1.13.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.2.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

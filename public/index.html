@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Extension Runner</title>
+    <link rel="icon" type="image/svg+xml" href="CERNoTxtLogo.svg">
+    <link rel="icon" type="image/png" href="CERNoTxtLogo.png">
+    <!-- Microsoft Fluent UI Icons -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css">
+    <!-- Application Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Extensions List View -->
+        <div id="extensionsView" class="view active">
+            <div class="header">
+                <img src="CERNoTxtLogo.svg" alt="Custom Extension Runner Logo" class="header-logo">
+                <h1>Custom Extension Runner</h1>
+                <p>Select an Entra ID Governance Custom Extension to execute for a specific user</p>
+                <div id="currentUser" class="user-display">Loading user info...</div>
+            </div>
+
+            <div class="card">
+                <h2><i class="ms-Icon ms-Icon--CustomList icon-margin"></i> Available Custom Extensions</h2>
+                <div id="extensionResults">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading available Custom Extensions...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extension Detail View -->
+        <div id="extensionDetailView" class="view">
+            <button class="btn btn-primary back-button" onclick="showExtensionsView()">
+                ← Back to Extensions
+            </button>
+
+            <div id="selectedExtensionHeader" class="selected-extension-header">
+                <h2 id="extensionDetailTitle">Extension Name</h2>
+                <p id="extensionDetailSubtitle">Resource Group / Workflow Name</p>
+            </div>
+
+            <!-- User Search -->
+            <div class="card">
+                <h2><span class="step-number">1</span><i class="ms-Icon ms-Icon--Search icon-margin"></i> Search for User</h2>
+                <div class="search-container">
+                    <input type="text" id="userSearch" placeholder="Enter user email or display name...">
+                    <button class="btn btn-primary" onclick="searchUsers()">Search Users</button>
+                </div>
+                <div id="userResults" class="results">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">Search</div>
+                        <p>Search for a user to process with this extension</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Execute -->
+            <div class="card">
+                <h2><span class="step-number">2</span><i class="ms-Icon ms-Icon--LightningBolt icon-margin"></i> Execute Extension</h2>
+                <div id="selectedInfo" class="selected-info" style="display: none;">
+                    <p><strong>User:</strong> <span id="selectedUserName"></span></p>
+                    <p><strong>Extension:</strong> <span id="selectedExtensionName"></span></p>
+                </div>
+                <div id="noSelectionInfo" class="empty-state">
+                    <div class="empty-state-icon">Config</div>
+                    <p>Select a user above to continue</p>
+                </div>
+                <button class="btn btn-success" id="executeBtn" onclick="executeExtension()" disabled>
+                    Execute Extension
+                </button>
+            </div>
+
+            <!-- Results -->
+            <div class="card">
+                <h2><span class="step-number">3</span><i class="ms-Icon ms-Icon--BarChartVertical icon-margin"></i> Execution Results</h2>
+                <div id="executionResults" class="results">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">Results</div>
+                        <p>Execution results will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <a href="https://www.christianfrohn.dk" target="_blank" rel="noopener noreferrer" class="footer-link">
+                <img src="/images/ChrFrohnLogo.png" alt="Christian Frohn" class="footer-logo">
+                <span>Made by Christian Frohn</span>
+            </a>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
